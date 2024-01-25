@@ -1,16 +1,16 @@
 from django.shortcuts import render
 from django.http import Http404
-from blog.data import posts
+from esporte.data import posts
 
 # Create your views here.
 
-def blog(request):
-    print('Blog app 2!')
+def esporte(request):
+    print('Esporte!')
     return render(
         request,
-        'blog/index.html',
+        'esporte/index.html',
         {
-            'title': 'Blog',
+            'title': 'Esporte',
             'posts': posts,
         }
     )
@@ -25,25 +25,13 @@ def post(request, post_id):
             break
     
     if found_post is None:
-        raise Http404('Post não encontrado')
+        raise Http404('Post não encontrado!')
     
     return render(
         request,
-        'blog/post.html',
+        'esporte/post.html',
         {
             'title': 'post',
             'post': found_post
         }
-    )
-
-def exemplo(request):
-    print('Exemplo app 2!')
-    context = {
-        'title': '- Exemplo',
-        'text': 'Estamos na Exemplo'
-    }
-    return render(
-        request,
-        'blog/exemplo.html',
-        context
     )
